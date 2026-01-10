@@ -23,6 +23,39 @@ sudo apt update && sudo apt install antigravity
 
 # Antigravity 에서 ssh로 원격 서버 접속
 
+## 1. 인증키를 이용하여 접속 하기 (추천) 
+
+### 1.1 접속할 서버의 입력키(*.pem)을 다운로드 받습니다. 
+
+자동차 산업 클라우드에서는 VM > 접속 정보 > `접속 인증 키(Key) : default` 를 클릭하여 다운로드 받을수 있습니다. 
+
+<img width="379" height="381" alt="image" src="https://github.com/user-attachments/assets/b27d86b4-3555-4d1d-81db-9fc387d32e1c" />
+
+### 1.2 클라이언트 툴에서 접속 정보 및 키 위치 입력 하기 
+
+<img width="886" height="274" alt="image" src="https://github.com/user-attachments/assets/82b90416-c8ec-4bc3-a051-da726c8cffa1" />
+
+```
+  Host 10.10.17.63
+    HostName 10.10.17.63
+    User kadap
+    IdentityFile "C:\Users\admin\Downloads\2-82_default.pem"
+    Port 22
+    StrictHostKeyChecking accept-new
+```
+
+### `Ctrl` + `Shift` + `p` : remote-ssh
+
+<img width="709" height="142" alt="image" src="https://github.com/user-attachments/assets/a40ab005-fe38-47b7-9cc6-8b4e599fd2ea" />
+
+<img width="705" height="140" alt="image" src="https://github.com/user-attachments/assets/2cfec886-423a-4c24-9a6f-52e037030995" />
+
+
+
+## 2. 비밀번호 키보드 입력으로 접속 하기 
+
+> 일부 윈도우 환경에서는 입력창이 활성화 되지 않는 오류 보고 됨 
+
 Crtl + Shift + p
 
 <img width="740" height="225" alt="image" src="https://github.com/user-attachments/assets/2c22d75c-206a-44d9-bcfc-b50139e4bd7f" />
