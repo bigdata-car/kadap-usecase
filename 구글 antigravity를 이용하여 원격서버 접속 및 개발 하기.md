@@ -2,7 +2,7 @@
 
 https://antigravity.google/download
 
-<img width="1186" height="784" alt="image" src="https://github.com/user-attachments/assets/93c77fda-a956-4376-9a25-7a6d73c19c7c" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/93c77fda-a956-4376-9a25-7a6d73c19c7c" />
 
 ```
 sudo mkdir -p /etc/apt/keyrings
