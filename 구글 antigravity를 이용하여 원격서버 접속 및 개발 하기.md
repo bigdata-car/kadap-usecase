@@ -44,11 +44,33 @@ sudo apt update && sudo apt install antigravity
     StrictHostKeyChecking accept-new
 ```
 
-### `Ctrl` + `Shift` + `p` : remote-ssh
+### 1.3 `Ctrl` + `Shift` + `p` : Remote-SSH로 접속 시도 
 
 <img width="709" height="142" alt="image" src="https://github.com/user-attachments/assets/a40ab005-fe38-47b7-9cc6-8b4e599fd2ea" />
 
 <img width="705" height="140" alt="image" src="https://github.com/user-attachments/assets/2cfec886-423a-4c24-9a6f-52e037030995" />
+
+### [윈도우 사용자 필수] pem키 권한 조정 하기 
+
+리눅스와 달리 윈도우에서는 권한 설정 단계가 필요 합니다. 
+
+#### A. GUI 설정 
+PowerShell 관리자 권한 열기 
+
+```
+# PEM 파일 경로로 이동
+cd C:\Users\사용자명\.ssh
+
+# 현재 사용자만 Full Control 권한 설정
+icacls server_key.pem /inheritance:r
+icacls server_key.pem /grant:r "$env:USERNAME`:F"
+
+# 권한 확인 (현재 사용자만 나와야 함)
+icacls C:\Users\사용자명\.ssh\server_key.pem
+```
+#### B. CLI 설정
+
+> [참고](https://velog.io/@dani_ca/%EC%9C%88%EB%8F%84%EC%9A%B0%EC%97%90%EC%84%9C-Permissions-for-key.pem-are-too-open)
 
 
 
@@ -63,22 +85,5 @@ Crtl + Shift + p
 <img width="709" height="140" alt="image" src="https://github.com/user-attachments/assets/6bb720a1-4e66-481b-93f8-5b962753d238" />
 
 
-```
-2025-12-26 12:08:13.693 [info] [Trace	- 03:08:13.692] [stderr] @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-2025-12-26 12:08:13.693 [info] [Trace	- 03:08:13.692] [stderr] @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-2025-12-26 12:08:13.693 [info] [Trace	- 03:08:13.692] [stderr] @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-2025-12-26 12:08:13.693 [info] [Trace	- 03:08:13.693] [stderr] IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] Someone could be eavesdropping on you right now (man-in-the-middle attack)!
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] It is also possible that a host key has just been changed.
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] The fingerprint for the ED25519 key sent by the remote host is
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] SHA256:x76V2wABf8aNIis5eikzpsl6DuQaNaDXR6mTsF2XZvk.
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] Please contact your system administrator.
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] Add correct host key in C:\\Users\\admin/.ssh/known_hosts to get rid of this message.
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] Offending ECDSA key in C:\\Users\\admin/.ssh/known_hosts:26
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.693] [stderr] Host key for 10.10.17.32 has changed and you have requested strict checking.
-2025-12-26 12:08:13.694 [info] [Trace	- 03:08:13.694] [stderr] Host key verification failed.
-2025-12-26 12:08:13.698 [info] [Error	- 03:08:13.697] SSH server closed unexpectedly.
-Error code: 255
-```
 
 <img width="709" height="106" alt="image" src="https://github.com/user-attachments/assets/e58098de-0a56-46c5-9c65-293eae399112" />
